@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="style/inventory.css" media="screen" rel="stylesheet" type="text/css"/>
+
+</head>
+<body>
+	<article id="content">
+		<section>
+		<h1>Inventory Management Web Service</h1>
+		<p>This is an updated version of the Inventory Management page seen earlier. 
+		It has been written using jQuery to simplify the JavaScript and JSON for the 
+		interactions with the Web service</p>
+		<p>This page issues HTTP GET, PUT, POST, DELETE requests 
+		based on user interactions to a simple inventory store. 
+		The pages uses javascript's XMLHttpRequest to issue these HTTP requests. 
+		The inventory store is implemented as a RESTful web service and the inventory 
+		items are accessed and updated as URL resources. </p>
+		<p><strong>This page requires JSON be enabled on the server. You must complete part 2 of the exercise or deploy
+		the solution from the project: Ex81_jaxrs_solution_JSON</strong></p>
+		<hr /> 
+		</section>
+		<section>
+		<form>
+			<table id="inventory">
+			<tr><th>Product Id</th><th>Quantity</th><th></th></tr>
+			</table>
+		</form>			
+		<form action="#" class="addForm">
+			<label>Product Id:<input id="postNewId" class="id" name="postNewId" type="text" value=""></label>
+			<label>Quantity:<input id="postNewQty" class="qty" name="postNewQty" type="text" value=""></label>
+			<input id="postNewBut" type="button" value="POST NEW" > 
+		</form>
+		</section>
+	</article>
+	<div id="ajaxResults">Ajax request in progress</div>
+<script src="js/jquery-min-1.9.js"></script>	
+<script src="js/inventory_jq.js"></script>	
+</body>
+</html>

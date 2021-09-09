@@ -1,0 +1,63 @@
+<html>
+<body>
+<h2>Hints for Exercise 7.1</h2>
+
+<h3>web.xml</h3>
+
+<font color="grey"><pre>    &lt;!-- TODO: use the fully-qualified name of the JAX-RS Application subclass</pre></font>
+<font color="grey"><pre>               as the value of the &lt;servlet-name&gt; element --&gt;</pre></font>
+<font color="grey"><pre>    &lt;servlet-name&gt;</font><font color="blue">com.rf.inventory.webapps.InventoryApplication</font><font color="grey">&lt;/servlet-name&gt;</pre></font>
+<font color="grey"><pre>&lt;/servlet&gt;</pre></font>
+<font color="grey"><pre>&lt;servlet-mapping&gt;</pre></font>
+<font color="grey"><pre>    &lt;!-- TODO: use the fully-qualified name of the JAX-RS Application subclass</pre></font>
+<font color="grey"><pre>               as the value of the &lt;servlet-name&gt; element --&gt;</pre></font>
+<font color="grey"><pre>    &lt;servlet-name&gt;</font><font color="blue">com.rf.inventory.webapps.InventoryApplication</font><font color="grey">&lt;/servlet-name&gt;</pre></font>
+
+<h3>Item.java</h3>
+
+<font color="grey"><pre>// TODO: Add annotation to indicate that Item should be used as</pre></font>
+<font color="grey"><pre>//       the root element of the exchanged XML or JSON</pre></font>
+<font color="blue"><pre>@XmlRootElement</pre></font>
+<font color="grey"><pre>public class Item {</pre></font>
+
+<h3>ItemList.java</h3>
+
+<font color="grey"><pre>// TODO: Add annotation to indicate that we will send/receive XML or JSON documents</pre></font>
+<font color="grey"><pre>//       consisting of just one ItemList named "items"</pre></font>
+<font color="blue"><pre>@XmlRootElement(name="items")</pre></font>
+<font color="grey"><pre>public class ItemList {</pre></font>
+<font color="grey"><pre>    private List&lt;Item> items = new ArrayList&lt;Item>();</pre></font>
+<font color="grey"><pre>    // TODO: Add annotation to indicate that the element or member name</pre></font>
+<font color="grey"><pre>    //       will be "item"</pre></font>
+<font color="blue"><pre>    @XmlElement(name="item")</pre></font>
+<font color="grey"><pre>    public List&lt;Item> getItems() {</pre></font>
+
+<h3>InventoryEndpointImpl.java</h3>
+
+<font color="grey"><pre>    // TODO: Make modifications so that this method will produce content of</pre></font>
+<font color="grey"><pre>    //       MIME types "application/xml" or "application/json"</pre></font>
+<font color="grey"><pre>    @GET</pre></font>
+<font color="grey"><pre>    @Path("/all")</pre></font>
+<font color="blue"><pre>    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})</pre></font>
+<font color="grey"><pre>    public ItemList doGet() {</pre></font>
+<font color="grey"><pre>    ...</pre></font>
+<font color="grey"><pre>    // TODO:</pre></font>
+<font color="grey"><pre>    // 1. Make modifications so that this method will accept content of</pre></font>
+<font color="grey"><pre>    //    MIME types "application/xml" or "application/json"</pre></font>
+<font color="grey"><pre>    // 2. Make modifications so that this method will produce content of</pre></font>
+<font color="grey"><pre>    //    MIME types "application/xml" or "application/json"</pre></font>
+<font color="grey"><pre>    @POST</pre></font>
+<font color="blue"><pre>    @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})</pre></font>
+<font color="blue"><pre>    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})</pre></font>
+<font color="grey"><pre>    // omit @Path since it's the class' default</pre></font>
+<font color="grey"><pre>    public String doPost(Item item) throws WebApplicationException {</pre></font>
+<font color="grey"><pre>    ...</pre></font>
+<font color="grey"><pre>    // TODO: Make modifications so that this method will produce content of</pre></font>
+<font color="grey"><pre>    //       MIME types "application/xml" or "application/json"</pre></font>
+<font color="grey"><pre>    @PUT</pre></font>
+<font color="grey"><pre>    @Path("/{productId}")</pre></font>
+<font color="blue"><pre>    @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})</pre></font>
+<font color="grey"><pre>    public Response doPut( @PathParam("productId") int id,</pre></font>
+
+</body>
+</html>
